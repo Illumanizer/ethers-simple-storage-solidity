@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ethers": "6.2.3",
+    "fs-extra": "^11.1.1",
+    "nodejs": "^0.0.0",
+    "npm": "^8.0.0",
+    "solc": "^0.8.21"
+  },
+  "scripts": {
+    "compile": "solcjs --bin --abi --include-path node_modules/ --base-path . -o . "
+  }
+}
