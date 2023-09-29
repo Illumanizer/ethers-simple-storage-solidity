@@ -20,7 +20,9 @@ async function main() {
   console.log("Deploying, Please Wait.......");
   const contract = await contractFactory.deploy();
   const deploymentReceipt = await contract.deploymentTransaction().wait(1);
-  //   console.log(contract);
+  const contractAddress=await contract.getAddress();
+  console.log("Contract Deployed at Address:",contractAddress);
+  //   console.log(contract); 
 
   // console.log(deploymentReceipt)
 
