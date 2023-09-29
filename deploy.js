@@ -4,7 +4,7 @@ require("dotenv").config();
 
 async function main() {
   const provider = new ethers.JsonRpcProvider(process.env.RPC_URL); //RPC network address of blockchain
-  const encryptedJsonKey = fs.readFileSync("./.encryptedKey.json", "utf8");
+  const encryptedJsonKey = fs.readFileSync("./encryptedKey.json", "utf8");
 
   let wallet = ethers.Wallet.fromEncryptedJsonSync(
     encryptedJsonKey,
@@ -18,7 +18,7 @@ async function main() {
   );
   const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
   console.log("Deploying, Please Wait.......");
-  const contract = await contractFactory.deploy({value: hre.ethers.utils.parseEther("0.07")});
+  const contract = await contractFactory.deploy();
   const deploymentReceipt = await contract.deploymentTransaction().wait(1);
   //   console.log(contract);
 
